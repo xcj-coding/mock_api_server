@@ -1,0 +1,20 @@
+var api_server = {}
+module.exports = api_server
+var ajax = require('./lib/ajax')
+var doc = require('./lib/doc')
+api_server.run = require('./lib/init'),
+api_server.chance = require('chance')
+api_server.Mock = require('mockjs')
+api_server.Random = require('mockjs').Random
+api_server._set = function (name, value) {
+    this[name] = value
+}
+api_server.ajax = ajax.ajax
+api_server.get = ajax.get
+api_server.post = ajax.post
+api_server.delete = ajax.delete
+api_server.put = ajax.put
+api_server.view = require('./lib/view')
+api_server.doc = doc.addDoc
+api_server.docFile = doc.docFile
+api_server.call = require('./lib/call')
